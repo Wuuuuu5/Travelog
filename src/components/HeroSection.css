@@ -1,0 +1,112 @@
+video{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /* make sure it doesn't cover anything else */
+    z-index: -1;
+}
+
+.hero-container {
+    /*background: url('/images/hero-bg.jpg') center center/cover no repeat;*/
+    height: 100vh;
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: cont;
+}
+
+
+    .hero-container > h1 {
+        color: #fff;
+        font-size: 100px;
+        margin-top: -100px;
+        animation: fade-left 0.6s ease;
+    }
+.hero-container > p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    animation: fade-right 0.6s ease;
+
+}
+
+.hero--btns{
+    animation: fade-left 0.6s ease;
+    margin-top: 30px;
+}
+
+.hero--btns .btns {
+    margin: 6px;
+}
+
+@media screen and (max-width: 960px) {
+    .hero-container > h1 {
+        font-size: 70px;
+        margin-top: -150px;
+}
+}
+
+@media screen and (max-width: 768px) {
+    .hero-container > h1 {
+        font-size: 50px;
+        margin-top: -100px;
+    }
+    .hero-container > p {
+        font-size :30px;
+
+    }
+
+    .btn-mobile {
+        display: block;
+        text-decoration: none;
+    }
+
+    .btn{
+        width: 100%;
+    }
+    
+}
+
+@keyframes fade-left{
+  0%{
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+@keyframes fade-down{
+  0%{
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
