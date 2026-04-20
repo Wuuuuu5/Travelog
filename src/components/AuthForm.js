@@ -72,7 +72,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }) {
         {/* X close button */}
         <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
 
-        {/* ── Sign Up Form ── */}
+        {/* ── testing ── */}
         <div className="form-container sign-up-container">
           <form onSubmit={handleSignUp} className="auth-form">
             <h1 className="form-title">Create Account</h1>
