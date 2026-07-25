@@ -1,9 +1,34 @@
+'use client'
+import { createClient } from "@/lib/supabase/client"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Globe2, Mail, Lock } from "lucide-react"
 
 export default function LoginPage() {
-  
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const router = useRouter();
+
+  const supabase = createClient();
+
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    })
+    if (error) {
+      setError(error.message);
+      return;
+    }
+    router.refresh(); // refresh server state after auth
+    setEmail(''); // clear email input
+    setPassword(''); // clear password input
+  }
 
 
   return (
@@ -23,7 +48,7 @@ export default function LoginPage() {
             Log in to pick up where you left off comparing NZ hotels.
           </p>
 
-          <form className="mt-8 space-y-4">
+          <form className="mt-8 space-y-4" onSubmit={handleSignIn}>
             <label className="block">
               <span className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 Email
@@ -34,9 +59,11 @@ export default function LoginPage() {
                 </span>
                 <input
                   type="email"
+                  value= {email}
                   placeholder="you@example.com"
                   autoComplete="email"
                   required
+                  onChange={(e) => setEmail(e.target.value)} // sync input with state
                   className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
                 />
               </span>
@@ -52,14 +79,22 @@ export default function LoginPage() {
                 </span>
                 <input
                   type="password"
+                  value= {password}
                   placeholder="••••••••"
                   autoComplete="current-password"
                   minLength={6}
                   required
+                  onChange={(e) => setPassword(e.target.value)} // sync input with state
                   className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
                 />
               </span>
             </label>
+
+            {error && (
+              <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive" role="alert">
+                {error}
+              </p>
+            )}
 
             <button
               type="submit"

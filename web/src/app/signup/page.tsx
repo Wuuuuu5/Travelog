@@ -1,8 +1,35 @@
+'use client'
+import { createClient } from "@/lib/supabase/client"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Globe2, Mail, Lock, User as UserIcon } from "lucide-react"
 
 export default function SignupPage() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const router = useRouter();
+
+  const supabase = createClient();
+
+  const handleSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { name },
+        emailRedirectTo: `${location.origin}/auth/callback`
+      }
+    })
+    router.refresh(); // refresh server state after auth
+    setName('');
+    setEmail('');
+    setPassword('');
+  }
+
   return (
     <main className="flex min-h-screen bg-background">
       {/* Form side */}
@@ -20,7 +47,7 @@ export default function SignupPage() {
             Join Travelog to save stays and track the best NZ hotel prices.
           </p>
 
-          <form className="mt-8 space-y-4">
+          <form className="mt-8 space-y-4" onSubmit={handleSignUp}>
             <label className="block">
               <span className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 Full name
@@ -31,6 +58,8 @@ export default function SignupPage() {
                 </span>
                 <input
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="Kiri Ngata"
                   autoComplete="name"
                   required
@@ -49,6 +78,8 @@ export default function SignupPage() {
                 </span>
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   autoComplete="email"
                   required
@@ -67,6 +98,8 @@ export default function SignupPage() {
                 </span>
                 <input
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   autoComplete="new-password"
                   minLength={6}
