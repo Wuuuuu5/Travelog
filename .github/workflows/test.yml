@@ -1,0 +1,23 @@
+name: Test project 
+
+on: # when to run this workflow
+  pull_request: # run this workflow on pull requests
+    branches: # only run on pull requests to the main branch
+    - main 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest # Using the latest version of Ubuntu 
+    container:
+      image: node:22
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        node-version: 22
+    - run: npm ci --prefix web
+    # - run: npm test # uncomment this line to run tests later when backend is set up
+    - run: npm run build --prefix web
+      env:
+        NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+    - run: npm run lint --prefix web

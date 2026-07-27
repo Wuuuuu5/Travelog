@@ -24,13 +24,21 @@ const DESTINATIONS = [
   "Dunedin",
 ]
 
+type SearchBarProps = {
+  initialDestination?: string
+  initialCheckIn?: string
+  initialCheckOut?: string
+  initialGuests?: number
+  className?: string
+}
+
 const SearchBar = ({
   initialDestination = "",
   initialCheckIn = "",
   initialCheckOut = "",
   initialGuests = 2,
   className = "",
-}) => {
+}: SearchBarProps) => {
   const router = useRouter()
 
   // Each field of the form gets its own piece of state. They start out prefilled
@@ -59,7 +67,7 @@ const SearchBar = ({
   // Builds the /search URL from whatever the user has filled in and navigates there.
   // `dest` lets us pass a destination directly (used when clicking a suggestion),
   // since state updates from setDestination() wouldn't be visible yet in this same call.
-  const submit = (dest) => {
+  const submit = (dest?: string) => {
     const q = (dest ?? destination).trim()
     const params = new URLSearchParams()
     if (q) params.set("destination", q)
@@ -75,7 +83,7 @@ const SearchBar = ({
   return (
     <div className={`relative ${className}`}>
       <form
-        onSubmit={(e) => {
+        onSubmit={(e: React.SubmitEvent<HTMLFormElement>) => {
           e.preventDefault()
           submit()
         }}
@@ -90,7 +98,7 @@ const SearchBar = ({
             </label>
             <input
               value={destination}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setDestination(e.target.value)
                 setShowList(true)
               }}
@@ -115,7 +123,7 @@ const SearchBar = ({
             <input
               type="date"
               value={checkIn}
-              onChange={(e) => setCheckIn(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCheckIn(e.target.value)}
               className="bg-transparent text-sm font-medium text-foreground outline-none"
             />
           </div>
@@ -126,7 +134,7 @@ const SearchBar = ({
             <input
               type="date"
               value={checkOut}
-              onChange={(e) => setCheckOut(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCheckOut(e.target.value)}
               className="bg-transparent text-sm font-medium text-foreground outline-none"
             />
           </div>
