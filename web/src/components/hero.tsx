@@ -9,7 +9,7 @@ const Herosection = () => {
       <div className="relative mx-auto flex min-h-[calc(100vh-1px)] max-w-6xl flex-col justify-center px-4 py-28 sm:px-6">
         <div className="max-w-2xl">
           <span className="animate-rise-fade inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
-            <span className="size-1.5 rounded-full bg-green-500" />
+            <span className="size-1.5 rounded-full bg-red-500" />
             Comparing 5 booking providers across Aotearoa
           </span>
 
