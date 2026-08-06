@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar";
+import NavbarWrapper from "@/components/navbar-wrapper";
 
 export const metadata: Metadata = {
   title: "Travelog",
@@ -14,8 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-50">
-        <Navbar />
+      <body className="min-h-screen">
+        <NavbarWrapper />
         {children}
       </body>
     </html>

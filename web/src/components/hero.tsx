@@ -2,14 +2,14 @@ import SearchBar from "./search/searchbar"
 
 const Herosection = () => {
   return (
-    <section className="relative overflow-hidden bg-[#0b2733] text-white">
+    <section className="relative overflow-hidden bg-hero text-hero-foreground">
       {/* Gradient wash so text stays readable over the background */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0b2733] via-[#0b2733]/85 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-hero via-hero/85 to-transparent" />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-1px)] max-w-6xl flex-col justify-center px-4 py-28 sm:px-6">
         <div className="max-w-2xl">
           <span className="animate-rise-fade inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
-            <span className="size-1.5 rounded-full bg-red-500" />
+            <span className="size-1.5 rounded-full bg-green-500" />
             Comparing 5 booking providers across Aotearoa
           </span>
 

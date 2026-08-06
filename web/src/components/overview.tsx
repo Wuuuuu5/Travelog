@@ -124,7 +124,7 @@ export default function HomePage() {
         {/* CTA */}
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <Reveal>
-          <div className="overflow-hidden rounded-3xl bg-[#0b2733] px-8 py-14 text-center text-white sm:px-16">
+          <div className="overflow-hidden rounded-3xl bg-hero px-8 py-14 text-center text-hero-foreground sm:px-16">
             <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to find your best price?
             </h2>
