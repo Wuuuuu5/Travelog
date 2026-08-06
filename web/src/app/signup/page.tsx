@@ -31,8 +31,8 @@ export default function SignupPage() {
   if (submitted) {
     return (
       <div className="mx-auto flex min-h-[70vh] max-w-sm flex-col justify-center px-4 text-center">
-        <h1 className="mb-2 text-2xl font-bold text-slate-900">Check your email</h1>
-        <p className="text-sm text-slate-500">
+        <h1 className="mb-2 text-2xl font-bold text-foreground">Check your email</h1>
+        <p className="text-sm text-muted-foreground">
           We sent a confirmation link to {email}.
         </p>
       </div>
@@ -41,10 +41,10 @@ export default function SignupPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-sm flex-col justify-center px-4">
-      <h1 className="mb-6 text-2xl font-bold text-slate-900">Sign up</h1>
+      <h1 className="mb-6 text-2xl font-bold text-foreground">Sign up</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="mb-1 block text-sm font-medium text-muted-foreground">
             Email
           </label>
           <input
@@ -53,11 +53,11 @@ export default function SignupPage() {
             required
             value={email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
+            className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none"
           />
         </div>
         <div>
-          <label htmlFor="password" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="password" className="mb-1 block text-sm font-medium text-muted-foreground">
             Password
           </label>
           <input
@@ -67,7 +67,7 @@ export default function SignupPage() {
             minLength={6}
             value={password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
+            className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none"
           />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
