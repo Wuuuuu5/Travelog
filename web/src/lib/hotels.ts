@@ -10,6 +10,7 @@ export type Hotel = {
   region: string
   rating: number
   prices: Record<string, number>
+  image: string
 }
 
 export const PROVIDERS: Record<string, Provider> = {
@@ -27,6 +28,7 @@ const HOTELS: Hotel[] = [
     region: "Queenstown",
     rating: 4.8,
     prices: { nzstay: 289, roomhopper: 305, kiwibeds: 274, wanderlodge: 312, trekstay: 298 },
+    image: "/hotels/queenstown.jpg",
   },
   {
     id: "auckland-harbour-view",
@@ -34,6 +36,7 @@ const HOTELS: Hotel[] = [
     region: "Auckland",
     rating: 4.6,
     prices: { nzstay: 210, roomhopper: 198, kiwibeds: 225, wanderlodge: 205, trekstay: 219 },
+    image: "/hotels/auckland.jpg",
   },
   {
     id: "wellington-cityside",
@@ -41,6 +44,7 @@ const HOTELS: Hotel[] = [
     region: "Wellington",
     rating: 4.5,
     prices: { nzstay: 175, roomhopper: 182, kiwibeds: 169, wanderlodge: 190, trekstay: 178 },
+    image: "/hotels/wellington.jpg",
   },
   {
     id: "rotorua-geyser-retreat",
@@ -48,6 +52,7 @@ const HOTELS: Hotel[] = [
     region: "Rotorua",
     rating: 4.7,
     prices: { nzstay: 195, roomhopper: 188, kiwibeds: 202, wanderlodge: 199, trekstay: 191 },
+    image: "/hotels/rotorua.jpg",
   },
   {
     id: "bay-of-islands-marina",
@@ -55,6 +60,7 @@ const HOTELS: Hotel[] = [
     region: "Bay of Islands",
     rating: 4.9,
     prices: { nzstay: 340, roomhopper: 365, kiwibeds: 329, wanderlodge: 352, trekstay: 338 },
+    image: "/hotels/bay-of-islands.jpg",
   },
   {
     id: "christchurch-garden-inn",
@@ -62,6 +68,7 @@ const HOTELS: Hotel[] = [
     region: "Christchurch",
     rating: 4.3,
     prices: { nzstay: 152, roomhopper: 149, kiwibeds: 160, wanderlodge: 155, trekstay: 148 },
+    image: "/hotels/christchurch.jpg",
   },
   {
     id: "dunedin-heritage-house",
@@ -69,6 +76,7 @@ const HOTELS: Hotel[] = [
     region: "Dunedin",
     rating: 4.4,
     prices: { nzstay: 168, roomhopper: 174, kiwibeds: 165, wanderlodge: 171, trekstay: 169 },
+    image: "/hotels/dunedin.jpg",
   },
   {
     id: "fiordland-wilderness-camp",
@@ -76,6 +84,7 @@ const HOTELS: Hotel[] = [
     region: "Fiordland",
     rating: 4.8,
     prices: { nzstay: 260, roomhopper: 278, kiwibeds: 249, wanderlodge: 265, trekstay: 255 },
+    image: "/hotels/fiordland.jpg",
   },
 ]
 
