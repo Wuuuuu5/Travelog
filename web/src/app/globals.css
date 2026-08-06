@@ -68,9 +68,10 @@
   --border: oklch(0.9 0.01 230);
   --input: oklch(0.9 0.01 230);
   --ring: oklch(0.52 0.11 210);
-  /* hero/CTA panel matches the dark --card surface so it reads as the same panel family */
-  --hero: oklch(0.24 0.03 245);
-  --hero-foreground: oklch(0.99 0.005 220);
+  /* light theme's own hero panel: a pale brand-blue tint with dark text,
+     instead of reusing dark theme's navy panel */
+  --hero: oklch(0.93 0.025 215);
+  --hero-foreground: oklch(0.22 0.03 245);
   /* chart-1 runs slightly bluer/more chromatic than --primary so chart marks
      don't read gray on the light surface (validated for contrast + chroma) */
   --chart-1: oklch(0.53 0.13 230);
@@ -130,17 +131,25 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    transition-duration: 0.4s;
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
+/* Only active for the brief window a theme switch is in flight (toggled via
+   JS in ThemeToggle) — keeping this off the default `*` rule avoids adding a
+   permanent 0.4s settle delay to every hover/focus/style change site-wide. */
+.theme-transitioning,
+.theme-transitioning * {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 0.4s;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .theme-transitioning,
+  .theme-transitioning * {
     transition-duration: 0.01ms !important;
   }
 }

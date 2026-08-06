@@ -13,6 +13,9 @@ const ThemeToggle = ({ transparent = false }: ThemeToggleProps) => {
   const [burst, setBurst] = useState(false)
 
   const toggle = () => {
+    const root = document.documentElement
+    root.classList.add("theme-transitioning")
+    window.setTimeout(() => root.classList.remove("theme-transitioning"), 450)
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
     setBurst(true)
   }
@@ -24,7 +27,7 @@ const ThemeToggle = ({ transparent = false }: ThemeToggleProps) => {
       onAnimationEnd={() => setBurst(false)}
       aria-label="Toggle theme"
       className={`group relative flex size-9 items-center justify-center overflow-hidden rounded-full transition-colors duration-300 ${
-        transparent ? "text-white hover:bg-white/10" : "text-foreground hover:bg-muted"
+        transparent ? "text-hero-foreground hover:bg-hero-foreground/10" : "text-foreground hover:bg-muted"
       }`}
     >
       <span
