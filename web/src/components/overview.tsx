@@ -128,7 +128,7 @@ export default function HomePage() {
             <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to find your best price?
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-pretty leading-relaxed text-white/70">
+            <p className="mx-auto mt-3 max-w-xl text-pretty leading-relaxed text-hero-foreground/70">
               Start a search and watch Travelog compare providers, prices and locations in seconds.
             </p>
             <Link

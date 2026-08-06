@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavbarWrapper from "@/components/navbar-wrapper";
+import { ThemeProvider } from "@/components/theme";
 
 export const metadata: Metadata = {
   title: "Travelog",
@@ -13,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen">
-        <NavbarWrapper />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NavbarWrapper />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

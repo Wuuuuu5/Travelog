@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Globe2, User as UserIcon, LogOut, UserCircle2, ChevronDown } from "lucide-react"
+import { ThemeToggle } from "@/components/theme"
 
 type NavbarProps = {
   variant?: "solid" | "transparent"
@@ -13,23 +14,24 @@ const Navbar = ({ variant = "solid" }: NavbarProps) => {
     <header
       className={
         transparent
-          ? "absolute inset-x-0 top-0 z-20"
+          ? "fixed inset-x-0 top-0 z-20"
           : "sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur"
       }
+      style={{ viewTransitionName: "none" }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Globe2 className="size-5" />
           </span>
-          <span className={`text-lg font-bold tracking-tight ${transparent ? "text-white" : "text-foreground"}`}>
+          <span className={`text-lg font-bold tracking-tight ${transparent ? "text-hero-foreground" : "text-foreground"}`}>
             Travelog
           </span>
         </Link>
 
         <nav
           className={`hidden items-center gap-8 text-sm font-medium md:flex ${
-            transparent ? "text-white/80" : "text-muted-foreground"
+            transparent ? "text-hero-foreground/80" : "text-muted-foreground"
           }`}
         >
           {[
@@ -48,10 +50,11 @@ const Navbar = ({ variant = "solid" }: NavbarProps) => {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle transparent={transparent} />
           <Link
             href="/login"
             className={`hidden rounded-full px-4 py-2 text-sm font-semibold transition-colors sm:block ${
-              transparent ? "text-white hover:bg-white/10" : "text-foreground hover:bg-muted"
+              transparent ? "text-hero-foreground hover:bg-hero-foreground/10" : "text-foreground hover:bg-muted"
             }`}
           >
             Log in
