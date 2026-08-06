@@ -13,10 +13,10 @@ const Navbar = ({ variant = "solid" }: NavbarProps) => {
   return (
     <>
     <header
-      className={`sticky top-0 z-20 transition-colors duration-300 ${
+      className={`z-20 transition-colors duration-300 ${
         transparent
-          ? "border-b border-transparent bg-transparent"
-          : "border-b border-border bg-background/85 backdrop-blur"
+          ? "absolute inset-x-0 top-0 border-b border-transparent bg-transparent"
+          : "sticky top-0 border-b border-border bg-background/85 backdrop-blur"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
