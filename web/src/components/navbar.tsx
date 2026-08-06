@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { User as UserIcon, LogOut, UserCircle2, ChevronDown } from "lucide-react"
+import ThemeToggle from "@/components/theme-toggle"
 
 type NavbarProps = {
   variant?: "solid" | "transparent"
@@ -47,6 +48,7 @@ const Navbar = ({ variant = "solid" }: NavbarProps) => {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle transparent={transparent} />
           <Link
             href="/login"
             className={`hidden rounded-full px-4 py-2 text-sm font-semibold transition-colors sm:block ${
