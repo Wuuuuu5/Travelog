@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Globe2 } from "lucide-react"
+import Image from "next/image"
 
 export function SiteFooter() {
   return (
@@ -7,9 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2">
-            <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Globe2 className="size-5" />
-            </span>
+            <Image src="/travelog-icon.png" alt="" width={32} height={32} className="size-8 rounded-lg" />
             <span className="font-display text-lg font-bold tracking-tight text-foreground">Travelog</span>
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">

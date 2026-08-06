@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Globe2, User as UserIcon, LogOut, UserCircle2, ChevronDown } from "lucide-react"
+import Image from "next/image"
+import { User as UserIcon, LogOut, UserCircle2, ChevronDown } from "lucide-react"
 
 type NavbarProps = {
   variant?: "solid" | "transparent"
@@ -19,9 +20,7 @@ const Navbar = ({ variant = "solid" }: NavbarProps) => {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Globe2 className="size-5" />
-          </span>
+          <Image src="/travelog-icon.png" alt="" width={32} height={32} className="size-8 rounded-lg" priority />
           <span className={`text-lg font-bold tracking-tight ${transparent ? "text-white" : "text-foreground"}`}>
             Travelog
           </span>
