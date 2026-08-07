@@ -19,7 +19,8 @@ const ThemeToggle = ({ transparent = false }: ThemeToggleProps) => {
         transparent ? "text-hero-foreground hover:bg-hero-foreground/10" : "text-foreground hover:bg-muted"
       }`}
     >
-      {resolvedTheme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
+      <Sun className="size-[18px] dark:hidden" />
+      <Moon className="hidden size-[18px] dark:block" />
     </button>
   )
 }
