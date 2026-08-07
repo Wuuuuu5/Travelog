@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Star, MapPin } from "lucide-react"
 import { PROVIDERS, cheapestPrice, type Hotel } from "@/lib/hotels"
@@ -11,8 +12,16 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
       href={`/search?destination=${encodeURIComponent(hotel.region)}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-lg"
     >
-      <div className="relative flex h-36 items-start justify-end bg-gradient-to-br from-primary/25 to-accent/25 p-4">
-        <span className="flex items-center gap-1 rounded-full bg-card/90 px-2.5 py-1 text-xs font-semibold text-foreground shadow-sm">
+      <div className="relative flex h-36 items-start justify-end p-4">
+        <Image
+          src={hotel.image}
+          alt={hotel.name}
+          fill
+          sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0" />
+        <span className="relative flex items-center gap-1 rounded-full bg-card/90 px-2.5 py-1 text-xs font-semibold text-foreground shadow-sm">
           <Star className="size-3.5 fill-accent text-accent" />
           {hotel.rating.toFixed(1)}
         </span>

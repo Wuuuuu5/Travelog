@@ -116,13 +116,13 @@ export default function LoginPage() {
       {/* Image side */}
       <div className="relative hidden lg:block lg:w-1/2">
         <Image
-          src="/hotels/queenstown.png"
-          alt="Lakefront lodge in Queenstown, New Zealand"
+          src="/hotels/queenstown.jpg"
+          alt="Aerial view of Queenstown and Lake Wakatipu, New Zealand"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 p-12">
           <p className="max-w-md text-balance font-display text-2xl font-bold leading-tight text-white">
             One property. Every price. Compare New Zealand hotels in NZD.

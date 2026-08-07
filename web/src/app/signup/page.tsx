@@ -129,8 +129,8 @@ export default function SignupPage() {
       {/* Image side */}
       <div className="relative hidden lg:block lg:w-1/2">
         <Image
-          src="/hotels/queenstown.png"
-          alt="Lakefront lodge in Queenstown, New Zealand"
+          src="/hotels/queenstown.jpg"
+          alt="Aerial view of Queenstown and Lake Wakatipu, New Zealand"
           fill
           priority
           className="object-cover"

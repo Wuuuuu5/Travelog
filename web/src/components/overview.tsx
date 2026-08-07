@@ -36,7 +36,7 @@ export default function HomePage() {
         <Hero />
 
         {/* Providers strip */}
-        <section className="border-b border-border bg-card">
+        <section className="border-b border-border">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-8 sm:px-6 md:flex-row md:justify-between">
             <p className="text-sm font-medium text-muted-foreground">
               Comparing live NZD prices from leading booking providers
@@ -91,7 +91,7 @@ export default function HomePage() {
         </section>
 
         {/* Trending stays */}
-        <section className="bg-secondary/40">
+        <section>
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
             <Reveal>
               <div className="flex items-end justify-between gap-4">
@@ -128,7 +128,7 @@ export default function HomePage() {
             <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to find your best price?
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-pretty leading-relaxed text-white/70">
+            <p className="mx-auto mt-3 max-w-xl text-pretty leading-relaxed text-hero-foreground/70">
               Start a search and watch Travelog compare providers, prices and locations in seconds.
             </p>
             <Link
