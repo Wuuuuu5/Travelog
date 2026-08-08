@@ -176,7 +176,7 @@ export function DateRangePicker({
     place()
     window.addEventListener("resize", place)
     return () => window.removeEventListener("resize", place)
-  }, [open, viewYM])
+  }, [open, viewYM, anchorRef])
 
   useEffect(() => {
     if (!open) return
