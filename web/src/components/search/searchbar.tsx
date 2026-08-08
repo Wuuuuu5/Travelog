@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useTransition } from "react"
+import { useRef, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { MapPin, Users, Search, Minus, Plus, Loader2 } from "lucide-react"
+import { DateRangePicker } from "@/components/search/date-range-picker"
 
 // This is the search box shown on the hero section: destination, dates, and guest count.
 // When submitted it doesn't fetch anything itself — it just builds a query string
@@ -40,6 +41,7 @@ const SearchBar = ({
   className = "",
 }: SearchBarProps) => {
   const router = useRouter()
+  const formRef = useRef<HTMLFormElement>(null)
 
   // Each field of the form gets its own piece of state. They start out prefilled
   // from props so this component can also be reused to show a search that's
@@ -83,6 +85,7 @@ const SearchBar = ({
   return (
     <div className={`relative ${className}`}>
       <form
+        ref={formRef}
         onSubmit={(e: React.SubmitEvent<HTMLFormElement>) => {
           e.preventDefault()
           submit()
@@ -114,31 +117,15 @@ const SearchBar = ({
 
         <div className="hidden h-10 w-px bg-border md:block" />
 
-        {/* Plain HTML date inputs for check-in/check-out (native browser date picker) */}
-        <div className="flex items-center gap-3 px-3 py-2.5 md:py-2">
-          <div>
-            <label className="block text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-              Check in
-            </label>
-            <input
-              type="date"
-              value={checkIn}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCheckIn(e.target.value)}
-              className="bg-transparent text-sm font-medium text-foreground outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-              Check out
-            </label>
-            <input
-              type="date"
-              value={checkOut}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCheckOut(e.target.value)}
-              className="bg-transparent text-sm font-medium text-foreground outline-none"
-            />
-          </div>
-        </div>
+        <DateRangePicker
+          checkIn={checkIn}
+          checkOut={checkOut}
+          onChange={(nextCheckIn, nextCheckOut) => {
+            setCheckIn(nextCheckIn)
+            setCheckOut(nextCheckOut)
+          }}
+          anchorRef={formRef}
+        />
 
         <div className="hidden h-10 w-px bg-border md:block" />
 
